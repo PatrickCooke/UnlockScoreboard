@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/UnlockScoreboard/static/css/main.a9eba557.css",
+    "main.js": "/UnlockScoreboard/static/js/main.a447818c.js",
+    "static/js/787.60b2bdad.chunk.js": "/UnlockScoreboard/static/js/787.60b2bdad.chunk.js",
+    "index.html": "/UnlockScoreboard/index.html",
+    "main.a9eba557.css.map": "/UnlockScoreboard/static/css/main.a9eba557.css.map",
+    "main.a447818c.js.map": "/UnlockScoreboard/static/js/main.a447818c.js.map",
+    "787.60b2bdad.chunk.js.map": "/UnlockScoreboard/static/js/787.60b2bdad.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a9eba557.css",
+    "static/js/main.a447818c.js"
+  ]
+}
