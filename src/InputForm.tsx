@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { unlockedGames } from "./unlockedGames";
-import _ from "lodash";
+import { GameScores } from "./models/DataModels";
+import { combineTeamMemberes } from "./util";
 
 function InputForm() {
   const [teamName, setTeamName] = useState("");
@@ -15,7 +16,14 @@ function InputForm() {
   const [member6, setMember6] = useState("");
 
   const onClick = () => {
-    console.log("save it all");
+    const record: GameScores = {
+      teamName: teamName,
+      puzzle: puzzle,
+      minutes: String(minutes),
+      seconds: String(seconds),
+      members: combineTeamMemberes([member1, member2, member3, member4, member5, member6])
+    }
+    console.log(record)
   };
 
   return (
@@ -61,7 +69,7 @@ function InputForm() {
         <label>Player 1:</label>
         <input
           type="text"
-          value={teamName}
+          value={member1}
           onChange={(e) => setMember1(e.currentTarget.value)}
         />
       </form>
@@ -69,7 +77,7 @@ function InputForm() {
         <label>Player 2:</label>
         <input
           type="text"
-          value={teamName}
+          value={member2}
           onChange={(e) => setMember2(e.currentTarget.value)}
         />
       </form>
@@ -77,7 +85,7 @@ function InputForm() {
         <label>Player 3:</label>
         <input
           type="text"
-          value={teamName}
+          value={member3}
           onChange={(e) => setMember3(e.currentTarget.value)}
         />
       </form>
@@ -85,7 +93,7 @@ function InputForm() {
         <label>Player 4:</label>
         <input
           type="text"
-          value={teamName}
+          value={member4}
           onChange={(e) => setMember4(e.currentTarget.value)}
         />
       </form>
@@ -93,7 +101,7 @@ function InputForm() {
         <label>Player5:</label>
         <input
           type="text"
-          value={teamName}
+          value={member5}
           onChange={(e) => setMember5(e.currentTarget.value)}
         />
       </form>
@@ -101,7 +109,7 @@ function InputForm() {
         <label>Player 6:</label>
         <input
           type="text"
-          value={teamName}
+          value={member6}
           onChange={(e) => setMember6(e.currentTarget.value)}
         />
       </form>

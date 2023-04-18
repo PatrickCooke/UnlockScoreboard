@@ -51,14 +51,16 @@
   color: gainsboro;
   font-size: calc(10px + 2vmin);
 }
-tr {
-  display: block;
-  float: left;
-}
-th,td {
-  display: block;
-  text-align: left;
-  padding: 6px;
-  border: 1px solid #ccc;
+
+td {
   color: gainsboro;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 6px;
+}
+
+.tableHeader {
+  font-size: calc(10px + 2vmin);
+  color: gainsboro;
+  padding: 8px;
 }

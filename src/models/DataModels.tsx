@@ -16,12 +16,7 @@ export interface GameScores {
   puzzle: String,
   minutes: String,
   seconds: String,
-  member1: String,
-  member2: String | null,
-  member3: String | null,
-  member4: String | null,
-  member5: String | null,
-  member6: String | null,
+  members: String,
 }
 
 export interface Scores {

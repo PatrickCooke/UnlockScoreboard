@@ -5,20 +5,35 @@ import {useState} from 'react';
 import InputForm from './InputForm';
 import Scoreboard from './Scoreboard';
 import { GameScores } from './models/DataModels';
-// import axios from 'axios'
 
-const testData: [GameScores] = [
+const testData: GameScores[] = [
+	{
+		"teamName": "Go Team",
+		"puzzle": "The Nautilus' Traps",
+		"minutes": "20",
+		"seconds": "45",
+		"members": "Pat, Ted, Det",
+	},
+	{
+		"teamName": "Go Team",
+		"puzzle": "Sqeek & Sausage",
+		"minutes": "50",
+		"seconds": "48",
+		"members": "Pat, Ted, Det",
+	},
 	{
 		"teamName": "test",
-		"puzzle": "testPuz",
+		"puzzle": "The Nautilus' Traps",
+		"minutes": "42",
+		"seconds": "45",
+		"members": "sam and jon",
+	},
+	{
+		"teamName": "test",
+		"puzzle": "The House on the Hill",
 		"minutes": "45",
 		"seconds": "45",
-		"member1": "Pat",
-		"member2": "Ted",
-		"member3": "Det",
-		"member4": null,
-		"member5": null,
-		"member6": null
+		"members": "sam and jon",
 	}
 ]
 
@@ -46,13 +61,10 @@ function App() {
   },[data])
 
   const onClick = () => {
-    // submitHandler();
     setShowScores(showScores => !showScores);
   };
 
-  // const onChange = (e: React.FormEvent<HTMLInputElement>, func: () => void) => {
-  //   const newValue = e.currentTarget.value;
-  // }
+  const displayOptionButtonText =  showScores ? "Show Input" : 'Show Scores'
 
   return (
     <div className="App">
@@ -63,7 +75,7 @@ function App() {
         </p>
       </header>
       {!showScores && <InputForm />}
-      <button onClick={onClick} >Show Scores</button>
+      <button onClick={onClick} >{displayOptionButtonText}</button>
       {showScores && <Scoreboard scores={data} />}
     </div>
   );
