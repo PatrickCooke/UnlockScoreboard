@@ -39,9 +39,7 @@ const testData: GameScores[] = [
 
 function App() {
   // //uncomment to open live service
-  // const submitHandler = () => {
-  //   console.log('handler');
-    
+  // const retrieveData = () => {
   //   fetch('https://sheet.best/api/sheets/7f2bc952-adb6-4eef-a2c0-abe76058e523')
   //   .then((response) => response.json())
   //   .then((data) => {
@@ -55,16 +53,21 @@ function App() {
   const [showScores, setShowScores] = useState(false);
   const emptyData: GameScores[] = []
   const [data, setData] = useState(emptyData);
+  const [dataPulled, setDataPulled] = useState(false);
 
   useEffect(() => {
-    setData(testData)
-  },[data])
+    if (!dataPulled) {
+      setDataPulled(true);
+      // retrieveData()
+      setData(testData)
+    }
+  },[])
 
   const onClick = () => {
     setShowScores(showScores => !showScores);
   };
 
-  const displayOptionButtonText =  showScores ? "Show Input" : 'Show Scores'
+  const displayOptionButtonText =  showScores ? "Input Your Result" : 'Show Scores'
 
   return (
     <div className="App">
@@ -74,8 +77,8 @@ function App() {
           Record your game and see how you did!
         </p>
       </header>
+      <button className='switchButton' onClick={onClick} >{displayOptionButtonText}</button>
       {!showScores && <InputForm />}
-      <button onClick={onClick} >{displayOptionButtonText}</button>
       {showScores && <Scoreboard scores={data} />}
     </div>
   );

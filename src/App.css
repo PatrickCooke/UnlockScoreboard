@@ -31,7 +31,8 @@
 
 .text {
   color: gainsboro;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(8px + 2vmin);
+  padding: 4px;
 }
 
 @keyframes App-logo-spin {
@@ -63,4 +64,23 @@ td {
   font-size: calc(10px + 2vmin);
   color: gainsboro;
   padding: 8px;
+}
+
+.switchButton {
+  font-size: calc(12px + 2vmin);
+  color: gainsboro;
+  border-color: gainsboro;
+  border-width:thin;
+  border-radius: 5;
+  background-color: #282c34;
+  padding: 12px;
+}
+.saveButton {
+  font-size: calc(10px + 2vmin);
+  color: gainsboro;
+  border-color: gainsboro;
+  border-width:thin;
+  border-radius: 5;
+  background-color: #282c34;
+  padding: 12px;
 }

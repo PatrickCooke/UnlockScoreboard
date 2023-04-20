@@ -16,6 +16,9 @@ function InputForm() {
   const [member6, setMember6] = useState("");
 
   const onClick = () => {
+    if (teamName === '' || member1 === ''){
+      alert("Please make sure you've got a team name, time, and a team member listed!");
+    }
     const record: GameScores = {
       teamName: teamName,
       puzzle: puzzle,
@@ -24,18 +27,64 @@ function InputForm() {
       members: combineTeamMemberes([member1, member2, member3, member4, member5, member6])
     }
     console.log(record)
+    // saveGame(record);
   };
+
+  const saveGame = (game: GameScores) => {
+    fetch("https://sheet.best/api/sheets/7f2bc952-adb6-4eef-a2c0-abe76058e523", {
+  method: "POST",
+  mode: "cors",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(game),
+})
+  .then((r) => r.json())
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+  }
 
   return (
     <div>
       <label className="text">
         Puzzle:
         <select name="selectedPuzzle" defaultValue={puzzle} >
-          {createGameOption(unlockedGames['Sqeek & Sausage'])}
-          {createGameOption(unlockedGames['The House on the Hill'])}
+          {createGameOption(unlockedGames['A Noside Story'])}
+          {createGameOption(unlockedGames['A Noside story sequel'])}
+          {createGameOption(unlockedGames['Around the World in Eighty Days'])}
+          {createGameOption(unlockedGames['Arsène Lupin and the Great White Diamond'])}
+          {createGameOption(unlockedGames['Expedition Challenger'])}
+          {createGameOption(unlockedGames['Greed Mythology'])}
+          {createGameOption(unlockedGames['In Pursuit of the White Rabbit'])}
+          {createGameOption(unlockedGames['Insert Coin'])}
+          {createGameOption(unlockedGames['Lost In the Time Warp'])}
+          {createGameOption(unlockedGames['Mission #07'])}
+          {createGameOption(unlockedGames["Scheherazade's Last Tale"])}
+          {createGameOption(unlockedGames["Sherlock Holmes - The Scarlet Tread of Murder"])}
+          {createGameOption(unlockedGames["Sqeek & Sausage"])}
+          {createGameOption(unlockedGames["Star Wars Imperial Agents"])}
+          {createGameOption(unlockedGames["Star Wars Rebels"])}
+          {createGameOption(unlockedGames["Star Wars Smugglers"])}
+          {createGameOption(unlockedGames["The Adventures of Oz"])}
+          {createGameOption(unlockedGames["The Dragon's Seven Tests"])}
+          {createGameOption(unlockedGames["The Formula"])}
+          {createGameOption(unlockedGames["The House on the Hill"])}
+          {createGameOption(unlockedGames["The Island of Doctor Goose"])}
           {createGameOption(unlockedGames["The Nautilus' Traps"])}
+          {createGameOption(unlockedGames["The Night Of The Boogeyman"])}
+          {createGameOption(unlockedGames["The Noside Show"])}
+          {createGameOption(unlockedGames["The Seventh Screening"])}
+          {createGameOption(unlockedGames["The Tonipal's Treasure"])}
+          {createGameOption(unlockedGames["Tombstone Express"])}
         </select>
       </label>
+      {/* <label>
+        Minuete <input name="minuteInput" max={60} value={minutes} onInput={(e) => setMinutes(Number(e.currentTarget.value))}/>
+      </label> */}
       <form className="text">
         <label>Time:</label>
         <input
@@ -113,7 +162,7 @@ function InputForm() {
           onChange={(e) => setMember6(e.currentTarget.value)}
         />
       </form>
-      <button onClick={onClick}>Save</button>
+      <button className="saveButton" onClick={onClick}>Save</button>
     </div>
   );
 
