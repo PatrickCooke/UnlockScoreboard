@@ -19,7 +19,7 @@
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://patrickcooke.github.io/unlockscoreboard",
+  "homepage": "https://patrickcooke.github.io/UnlockScoreboard",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build", 
